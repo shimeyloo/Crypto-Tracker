@@ -1,0 +1,14 @@
+.portfolio-container {
+    background-color: rgb(247, 251, 255);
+}
+
+.table-section {
+    margin-top: 5em;
+    margin-bottom: 5em;
+    padding: 2em;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    border-color: rgb(185, 185, 185);
+}
