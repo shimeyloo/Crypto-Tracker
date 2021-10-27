@@ -12,3 +12,8 @@
     border-radius: 10px;
     border-color: rgb(185, 185, 185);
 }
+
+td button {
+    float: right; 
+    margin-left: 1em;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../images/logo.png'
+import './Navbar.css';
 
 function Link(props) {
     return(

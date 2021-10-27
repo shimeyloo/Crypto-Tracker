@@ -15,7 +15,6 @@ function Search() {
       )
       .then(res => {
         setCoins(res.data);
-        console.log(res.data);
       })
       .catch(error => console.log(error));
   }, []);

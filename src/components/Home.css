@@ -1,0 +1,22 @@
+.intro-section {
+    background-color: rgb(247, 251, 255);
+    height: 90vh;
+}
+.main-section {
+    width: 100%;
+    float: left;
+    margin: 5em 0 5em 0;
+}
+.main-text-1 {
+    color: rgb(65, 147, 255); 
+    font-size: 1.5em;
+}
+.main-text-2 {
+    margin: 0;
+    padding: 0;
+    font-size: 5em;
+}
+.main-text-3 {
+    font-size: 1.5em; 
+
+}

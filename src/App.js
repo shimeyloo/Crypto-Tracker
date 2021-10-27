@@ -4,13 +4,14 @@
 // https://www.sharesight.com/
 
 import React from 'react';
-// import Home from './components/Home.jsx';
+import Home from './components/Home.jsx';
 import Portfolio from './components/Portfolio.jsx'; 
 import Search from './components/Search';
 
 function App() {
   return (
     <div>
+      <Home />
       <Portfolio />
       <Search />
     </div>
