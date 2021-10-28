@@ -14,8 +14,8 @@ div {
 }
 .container {
     max-width: 1500px;
-    position: relative;
     width: calc(100vw - 50px);
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +46,7 @@ div {
 
 .page-title {
     margin-bottom: 3em; 
+    margin-top: 2em;
 }
 
 /* --------------------- Navbar --------------------- */
