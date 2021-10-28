@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import './Home.css';
 
 function Intro() {
@@ -7,7 +6,7 @@ function Intro() {
     <div className="section intro-section">
       <div className="container">
         <div className="main-section">
-          <p className="main-text-1">Simple. Fast. Secure</p>
+          <p className="main-text-1">Simple. Fast. Secure.</p>
           <p className="main-text-2">The World's Best</p>
           <p className="main-text-2">Cryptocurrency</p>
           <p className="main-text-2">Tracker.</p>
@@ -21,7 +20,6 @@ function Intro() {
 function Home() {
   return (
     <div id="home">
-      <Navbar />
       <Intro />
     </div>
   );

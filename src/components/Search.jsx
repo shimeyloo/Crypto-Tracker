@@ -1,8 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Coin from './Coin';
 import './Search.css';
-// import Navbar from './Navbar';
+
+const Coin = ({
+  name,
+  price,
+  symbol,
+  marketcap,
+  volume,
+  image,
+  priceChange
+}) => {
+  return (
+    <div className='coin-container'>
+      <div className='coin-row'>
+        <div className='coin'>
+          <img src={image} alt='crypto' />
+          <h1>{name}</h1>
+          <p className='coin-symbol'>{symbol}</p>
+        </div>
+        <div className='coin-data'>
+          <p className='coin-price'>${price}</p>
+          <p className='coin-volume'>${volume.toLocaleString()}</p>
+
+          {priceChange < 0 ? (
+            <p className='coin-percent red'>{priceChange.toFixed(2)}%</p>
+          ) : (
+            <p className='coin-percent green'>{priceChange.toFixed(2)}%</p>
+          )}
+
+          <p className='coin-marketcap'>
+            Mkt Cap: ${marketcap.toLocaleString()}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 function Search() {
   const [coins, setCoins] = useState([]);
@@ -29,24 +63,24 @@ function Search() {
 
   return (
     <div>
-        {/* <Navbar /> */}
         <div className='coin-component section'>
-        <div className='coin-search container'>
-            <h1 className='coin-text'>Search Coin</h1>
+          <div className='coin-search container'>
+            <h1 className="page-title">S E A R C H</h1>
+            <p>Enter coin name: </p>
             <div className='coin-form'>
-                <form>
-                    <input
-                        className='coin-input'
-                        type='text'
-                        onChange={handleChange}
-                        placeholder='Search'
-                    />
-                </form>
+              <form>
+                <input
+                  className='coin-input'
+                  type='text'
+                  onChange={handleChange}
+                  placeholder='Search'
+                />
+              </form>
             </div> 
-        </div>
-        {filteredCoins.map(coin => {
+          </div>
+          {filteredCoins.map(coin => {
             return (
-            <Coin
+              <Coin
                 key={coin.id}
                 name={coin.name}
                 price={coin.current_price}
@@ -55,7 +89,7 @@ function Search() {
                 volume={coin.market_cap}
                 image={coin.image}
                 priceChange={coin.price_change_percentage_24h}
-            />
+              />
             );
         })}
         </div>
