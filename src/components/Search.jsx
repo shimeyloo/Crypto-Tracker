@@ -32,7 +32,7 @@ function Search() {
         {/* <Navbar /> */}
         <div className='coin-component section'>
         <div className='coin-search container'>
-            <h1 className='coin-text'>Search a currency</h1>
+            <h1 className='coin-text'>Search Coin</h1>
             <div className='coin-form'>
                 <form>
                     <input

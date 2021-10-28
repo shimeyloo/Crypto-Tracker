@@ -17,3 +17,14 @@ td button {
     float: right; 
     margin-left: 1em;
 }
+
+.currencyConverter {
+    margin-top: 10em;
+}
+
+.decorationBorder {
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+    padding: 2em 2em 2em 2em;  
+}

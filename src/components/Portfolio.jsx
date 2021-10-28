@@ -6,43 +6,9 @@ import './Portfolio.css';
 
 const records = [{key: "Bitcoin", value: {"quantity": '12'}}, {key: "Ethereum", value: {"quantity": '543'}}]
 
-function AddForm(props) {
-
-  const [name, setName] = useState(""); 
-  const [amount, setamount] = useState(""); 
-
-  function nameInput(event) {
-    setName(event.target.value ) 
-  }
-  function quantityInput(event) {
-    setamount(event.target.value ) 
-  }
-
-  function addCoin(event) {
-    event.preventDefault();
-    records.push({key: name, value: {"quantity": amount}}) 
-    console.log(records)
-  }
-
-  return (
-    <div className="section">
-      <div className="container">
-        <h1>Add Coin</h1>
-        <form>
-          <h3>Name:</h3> 
-          <input onChange={nameInput} type="text" placeholder='Bitcoin' value={name}></input>
-          <h3>Amount:</h3> 
-          <input onChange={quantityInput} type="number" placeholder='100.00' value={amount}></input>
-          <button onClick={addCoin} >Submit</button>
-        </form>
-      </div>
-    </div>
-  )
-}
 
 function CoinRow(props) {
 
-  // const [coins, setCoins] = useState([""]);
   const [name, setName] = useState([""]); 
   const [symbol, setSymbol] = useState([""]); 
   const [price, setPrice] = useState([""]); 
@@ -53,8 +19,7 @@ function CoinRow(props) {
       .get(
         'https://api.coingecko.com/api/v3/coins/'+props.name.toLowerCase()+'?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
       )
-      .then(res => {
-        // setCoins(res.data);
+      .then(res => {;
         console.log(res.data);
         setName(res.data.name)
         setSymbol(res.data.symbol.toUpperCase())
@@ -87,43 +52,95 @@ function CoinRow(props) {
   )
 }
 
-function TableBody() {
-
-  // const[coinArray, setCoinArray] = useState(records); 
-  
-  return (
-    <tbody>
-      {records.map(value => {
-        return (
-          <CoinRow 
-            key={value.key} 
-            num="1" 
-            name={value.key} 
-            amount={value.value.quantity} 
-          />
-        ); 
-      })}
-    </tbody>
-  ); 
-}
-
 function Table() {
+  const[coinArray, setCoinArray] = useState(records); 
+
+  // ------------------ Add Coin ------------------ //
+  const [name, setName] = useState(""); 
+  const [amount, setamount] = useState(""); 
+
+  function nameInput(event) {
+    event.preventDefault()
+    setName(event.target.value ) 
+  }
+
+  function quantityInput(event) {
+    event.preventDefault()
+    setamount(event.target.value ) 
+  }
+
+  function handleAddSubmit(event) {
+    event.preventDefault();
+    records.push({key: name, value: {"quantity": amount}}) 
+    setCoinArray(records)
+    setName(""); 
+    setamount(""); 
+  }
+
+  // ------------------ Portfolio Total Value ------------------ //
+  const [totalValue, settotalValue] = useState(0); 
+
   return (
-    <div className="table-section container"> 
-      <table className="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Symbol</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Price</th>
-            <th scope="col">Total</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <TableBody />
-      </table>
+    <div>
+
+      {/* ------------------ Add Coin Form ------------------ */}
+      <div className="section">
+        <div className="container">
+          <h2>Add Coin</h2>
+          <form onSubmit={handleAddSubmit}>
+            <input 
+              type="text" 
+              placeholder='Name of coin...' 
+              value={name}
+              onChange={nameInput}
+            ></input>
+            <input 
+              type="number" 
+              placeholder='Amount you own...' 
+              value={amount}
+              onChange={quantityInput} 
+            ></input>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      {/* ------------------ Portfolio Total Value ------------------ */}
+      <div className="section">
+        <div className="container">
+          <h2>Total: </h2>
+          <h2>$ {totalValue}</h2>
+        </div>
+      </div>
+      
+      {/* ------------------ Table ------------------ */}
+      <div className="table-section container"> 
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Symbol</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {coinArray.map((value, index) => {
+              return (
+                <CoinRow 
+                  key={value.key} 
+                  num={index+1} 
+                  name={value.key} 
+                  amount={value.value.quantity} 
+                />
+              ); 
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );  
 }
@@ -133,7 +150,6 @@ function Portfolio() {
   return (
     <div className="portfolio-container section" id="portfolio">
       {/* <Navbar /> */}
-      <AddForm />
       <Table />
     </div>
   );
