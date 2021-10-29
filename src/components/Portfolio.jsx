@@ -6,11 +6,11 @@ import brokenIMG from '../images/brokenIMG.png'
 // Notes: 
 // https://www.youtube.com/watch?v=dYjdzpZv5yc
 
-const records = [{key: "Bitcoin", value: {"quantity": '12'}}, {key: "Ethereum", value: {"quantity": '543'}}]
-
+// const records = [{key: "Bitcoin", value: {"quantity": '12'}}, {key: "Ethereum", value: {"quantity": '543'}}]
+const records = []
 
 function CoinRow(props) {
-
+  
   const [name, setName] = useState([""]); 
   const [logo, setLogo] = useState([brokenIMG]); 
   const [symbol, setSymbol] = useState([""]); 
@@ -18,6 +18,7 @@ function CoinRow(props) {
   const [total, setTotal] = useState([""]); 
 
   useEffect(() => {
+
     axios
       .get(
         'https://api.coingecko.com/api/v3/coins/'+props.name.toLowerCase()+'?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
@@ -28,22 +29,18 @@ function CoinRow(props) {
         setLogo(res.data.image.thumb); 
         setSymbol(res.data.symbol.toUpperCase());
         setPrice(res.data.market_data.current_price.usd);
-
+        
         const totalCalc = function totalCalculation() {
           let x = Number(res.data.market_data.current_price.usd)
           let y = Number(props.amount)
           let z = x * y 
+          props.setTotalFunction(z)
           return z.toLocaleString()
         }
         setTotal(totalCalc)
       })
       .catch(error => console.log(error));
   }, []);
-
-  function handleEditButton(event) {
-    event.preventDefault()
-    console.log("clicked", props.num)
-  }
   
   return(
     <tr>
@@ -58,7 +55,7 @@ function CoinRow(props) {
       <td>$ {total}</td>
       <td>
         <button>Delete</button>
-        <button onClick={handleEditButton}>Edit</button>
+        <button>Edit</button>
       </td>
     </tr>
   )
@@ -73,12 +70,12 @@ function Table() {
 
   function nameInput(event) {
     event.preventDefault()
-    setName(event.target.value ) 
+    setName(event.target.value) 
   }
 
   function quantityInput(event) {
     event.preventDefault()
-    setamount(event.target.value ) 
+    setamount(event.target.value) 
   }
 
   function handleAddSubmit(event) {
@@ -90,7 +87,16 @@ function Table() {
   }
 
   // ------------------ Portfolio Total Value ------------------ //
-  const [totalValue, settotalValue] = useState(0); 
+  const [totalValue, setTotalValue] = useState(0); 
+
+  function handleTotalValue(tempValue) {
+    setTotalValue(prevItems => {
+      let sumVal = totalValue + tempValue
+      let roundtwoPlaces = Math.round(sumVal * 100) / 100
+      return roundtwoPlaces; 
+    }); 
+  }
+  console.log(typeof totalValue)
 
   return (
     <div>
@@ -121,7 +127,7 @@ function Table() {
       <div className="section">
         <div className="container">
           <h2>Total: </h2>
-          <h2>$ {totalValue}</h2>
+          <h2>$ {totalValue.toLocaleString()}</h2>
         </div>
       </div>
       
@@ -143,10 +149,11 @@ function Table() {
             {coinArray.map((value, index) => {
               return (
                 <CoinRow 
-                  key={value.key} 
+                  key={index} 
                   num={index+1} 
                   name={value.key} 
                   amount={value.value.quantity} 
+                  setTotalFunction={handleTotalValue}
                 />
               ); 
             })}
