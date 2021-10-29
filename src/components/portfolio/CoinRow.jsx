@@ -18,7 +18,6 @@ function CoinRow(props) {
           'https://api.coingecko.com/api/v3/coins/'+props.name.toLowerCase()+'?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
         )
         .then(res => {;
-          console.log(res.data);
           setName(res.data.name);
           setLogo(res.data.image.thumb); 
           setSymbol(res.data.symbol.toUpperCase());
