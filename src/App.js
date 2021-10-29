@@ -4,16 +4,16 @@
 // https://www.sharesight.com/
 
 import React from 'react';
-import Home from './components/Home.jsx';
+import Home from './components/home/Home.jsx';
 import {
   BrowserRouter as Router,
   Switch, Route, Link
 } from "react-router-dom"
 
-import Features from './components/Features.jsx'
-import Portfolio from './components/Portfolio.jsx'; 
-import Search from './components/Search';
-import Help from './components/Help.jsx';
+import Features from './components/features/Features.jsx'
+import Portfolio from './components/portfolio/Portfolio.jsx'; 
+import Search from './components/search/Search';
+import Help from './components/help/Help.jsx';
 
 import logo from './images/logo.png'
 
