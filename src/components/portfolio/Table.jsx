@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CoinRow from './CoinRow';
 
 // Notes: 
@@ -6,57 +6,9 @@ import CoinRow from './CoinRow';
 // https://flaviocopes.com/react-update-while-rendering-different-component/
 
 function Table(props) {
-  const records = []
-  const[coinArray, setCoinArray] = useState(props.data); 
-
-  // ------------------ Add Coin ------------------ //
-  const [name, setName] = useState(""); 
-  const [amount, setamount] = useState(""); 
-
-  function nameInput(event) {
-    event.preventDefault()
-    setName(event.target.value) 
-  }
-
-  function quantityInput(event) {
-    event.preventDefault()
-    setamount(event.target.value) 
-  }
-
-  function handleAddSubmit(event) {
-    event.preventDefault();
-    records.push({key: name, value: {"quantity": amount}}) 
-    setCoinArray(records)
-    setName(""); 
-    setamount(""); 
-  }
 
   return (
     <div>
-
-      {/* ------------------ Add Coin Form ------------------ */}
-      <div className="section">
-        <div className="container">
-          <h2>Add Coin</h2>
-          <form onSubmit={handleAddSubmit}>
-            <input 
-              type="text" 
-              placeholder='Name of coin...' 
-              value={name}
-              onChange={nameInput}
-            ></input>
-            <input 
-              type="number" 
-              placeholder='Amount you own...' 
-              value={amount}
-              onChange={quantityInput} 
-            ></input>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
-      
-      {/* ------------------ Table ------------------ */}
       <div className="table-section container"> 
         <table className="table">
           <thead>
@@ -71,7 +23,7 @@ function Table(props) {
             </tr>
           </thead>
           <tbody>
-            {coinArray.map((value, index) => {
+            {props.data.map((value, index) => {
               return (
                 <CoinRow 
                   key={index} 
