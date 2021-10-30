@@ -27,7 +27,7 @@ function Table(props) {
               return (
                 <CoinRow 
                   key={index} 
-                  num={index+1} 
+                  num={index} 
                   data={value}
                   updateData={props.updateData}
                   sumWorth={props.sumWorth}

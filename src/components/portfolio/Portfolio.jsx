@@ -9,14 +9,23 @@ function Portfolio() {
 
   // Portfolio's Records
   const records = [
-    {name: "Bitcoin", value: {"id":"", "symbol":"", "quantity": "13", "price": "", "totalWorth": "", "logo": brokenIMG}}, 
-    {name: "Ethereum", value: {"id":"", "symbol":"", "quantity": '53', "price": "", "totalWorth": "", "logo": brokenIMG}}
+    {inputName: "Bitcoin", value: {"id":"", "symbol":"", "quantity": "13", "price": "", "totalWorth": "", "logo": brokenIMG}}, 
+    {inputName: "Ethereum", value: {"id":"", "symbol":"", "quantity": '53', "price": "", "totalWorth": "", "logo": brokenIMG}},
+    {inputName: "Tron", value: {"id":"", "symbol":"", "quantity": '769', "price": "", "totalWorth": "", "logo": brokenIMG}}
   ]
   const [data, setData] = useState(records); 
 
   // Update records and set data 
-  function updateData() {
-    console.log("something is happening")
+  function updateData(pos, id, symbol, logo, price, total) {
+    records[pos].value.id = id
+    records[pos].value.symbol = symbol.toUpperCase()
+    records[pos].value.logo = logo
+    records[pos].value.price = price
+    records[pos].value.totalWorth = total
+    
+    setData(prevCoins => {
+      return [...prevCoins]
+    })
   }
 
   // Total Worth 
@@ -28,8 +37,8 @@ function Portfolio() {
   }
 
   // Adding new coin 
-  function addCoin(newCoinName, newCoinValue) {
-    let newData = {name: newCoinName, value: {"id":"", "symbol":"", "quantity": newCoinValue, "price": "", "totalWorth": "", "logo": brokenIMG}}
+  function addCoin(input, quantity, id, symbol, logo, price, total) {
+    let newData = {inputName: input, value: {"id":id, "symbol":symbol.toUpperCase(), "quantity": quantity, "price": price, "totalWorth": total, "logo": logo}}
     records.push(newData) 
     setData(prevCoins => {
       return [...prevCoins, newData]
