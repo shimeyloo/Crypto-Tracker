@@ -21,8 +21,8 @@ function CoinRow(props) {
             let x = Number(res.data.market_data.current_price.usd)
             let y = Number(props.data.value.quantity)
             let z = x * y 
-            props.sumWorth(z)
-            return z.toLocaleString()
+            props.addWorth(z)
+            return z
           }
           let total = totalCalc()
 
@@ -41,7 +41,7 @@ function CoinRow(props) {
         <td>{props.data.value.symbol}</td>
         <td>{props.data.value.quantity}</td>
         <td>$ {props.data.value.price}</td>
-        <td>$ {props.data.value.totalWorth}</td>
+        <td>$ {props.data.value.totalWorth.toLocaleString()}</td>
         <td>
           <DeleteButton pos={props.num} total={props.data.value.totalWorth} deleteCoin={props.deleteCoin}/>
           <button>Edit</button>

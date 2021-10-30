@@ -31,7 +31,7 @@ function Portfolio() {
   // Total Worth 
   const [totalWorth, setTotalWorth] = useState(0);
   let tempAmount = totalWorth
-  function sumWorth(newAmount) {
+  function addWorth(newAmount) {
     tempAmount += newAmount
     setTotalWorth(tempAmount)
   }
@@ -50,6 +50,11 @@ function Portfolio() {
     setData(prevData => {
       return prevData.filter(
         (item, index) => {
+          if (index == pos){
+            setTotalWorth(prevData => {
+              return (prevData - item.value.totalWorth)
+            })
+          }
           return index !== pos; 
         }
       )
@@ -63,7 +68,7 @@ function Portfolio() {
       <AddCoinForm data={data} addCoin={addCoin} />
       <Table 
         data={data} 
-        sumWorth={sumWorth} 
+        addWorth={addWorth} 
         deleteCoin={deleteCoin} 
         updateData={updateData}
       />

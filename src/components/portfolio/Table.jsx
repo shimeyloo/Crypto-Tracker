@@ -30,7 +30,7 @@ function Table(props) {
                   num={index} 
                   data={value}
                   updateData={props.updateData}
-                  sumWorth={props.sumWorth}
+                  addWorth={props.addWorth}
                   deleteCoin={props.deleteCoin}
                 />
               ); 
