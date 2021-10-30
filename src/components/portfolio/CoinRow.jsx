@@ -43,8 +43,7 @@ function CoinRow(props) {
         <td>$ {props.data.value.price}</td>
         <td>$ {props.data.value.totalWorth.toLocaleString()}</td>
         <td>
-          <DeleteButton pos={props.num} total={props.data.value.totalWorth} deleteCoin={props.deleteCoin}/>
-          <button>Edit</button>
+          <DeleteButton pos={props.num} deleteCoin={props.deleteCoin} />
         </td>
       </tr>
     )

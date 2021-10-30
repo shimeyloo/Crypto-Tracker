@@ -50,7 +50,7 @@ function Portfolio() {
     setData(prevData => {
       return prevData.filter(
         (item, index) => {
-          if (index == pos){
+          if (index === pos){
             setTotalWorth(prevData => {
               return (prevData - item.value.totalWorth)
             })
@@ -60,6 +60,7 @@ function Portfolio() {
       )
     }); 
   }
+
 
   return (
     <div className="portfolio-container section" id="portfolio">
