@@ -31,6 +31,7 @@ function Table(props) {
                   name={value.name} 
                   amount={value.value.quantity} 
                   sumWorth={props.sumWorth}
+                  deleteCoin={props.deleteCoin}
                 />
               ); 
             })}

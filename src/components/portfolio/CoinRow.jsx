@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import './Portfolio.css';
+import DeleteButton from './DeleteButton';
 import brokenIMG from '../../images/brokenIMG.png' 
 
 function CoinRow(props) {
@@ -47,7 +48,7 @@ function CoinRow(props) {
         <td>$ {price}</td>
         <td>$ {total}</td>
         <td>
-          <button>Delete</button>
+          <DeleteButton pos={props.num-1} deleteCoin={props.deleteCoin}/>
           <button>Edit</button>
         </td>
       </tr>

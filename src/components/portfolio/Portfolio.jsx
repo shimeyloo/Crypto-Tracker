@@ -27,12 +27,23 @@ function Portfolio() {
     })
   }
 
+  // Deleting coin 
+  function deleteCoin(pos) {
+    setData(prevData => {
+      return prevData.filter(
+        (item, index) => {
+          return index !== pos; 
+        }
+      )
+    }); 
+  }
+
   return (
     <div className="portfolio-container section" id="portfolio">
       <h1 className="page-title container">P O R T F O L I O</h1>
       <TotalWorth data={data} totalWorth={totalWorth} />
       <AddCoinForm data={data} addCoin={addCoin} />
-      <Table data={data} sumWorth={sumWorth} />
+      <Table data={data} sumWorth={sumWorth} deleteCoin={deleteCoin}/>
     </div>
   );
 }
