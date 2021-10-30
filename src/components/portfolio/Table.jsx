@@ -30,6 +30,7 @@ function Table(props) {
                   num={index+1} 
                   name={value.name} 
                   amount={value.value.quantity} 
+                  sumWorth={props.sumWorth}
                 />
               ); 
             })}

@@ -9,7 +9,7 @@ function CoinRow(props) {
     const [logo, setLogo] = useState([brokenIMG]); 
     const [symbol, setSymbol] = useState([""]); 
     const [price, setPrice] = useState([""]); 
-    const [total, setTotal] = useState([""]); 
+    const [total, setTotal] = useState([""]);
   
     useEffect(() => {
   
@@ -27,6 +27,7 @@ function CoinRow(props) {
             let x = Number(res.data.market_data.current_price.usd)
             let y = Number(props.amount)
             let z = x * y 
+            props.sumWorth(z)
             return z.toLocaleString()
           }
           setTotal(totalCalc)

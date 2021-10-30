@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function AddCoinForm (props) {
+function AddCoinForm(props) {
 
     const [name, setName] = useState(""); 
     const [amount, setamount] = useState(""); 

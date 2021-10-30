@@ -12,7 +12,7 @@ function Portfolio() {
 
   // Total Worth 
   const [totalWorth, setTotalWorth] = useState(0);
-  let tempAmount = 0 
+  let tempAmount = totalWorth
   function sumWorth(newAmount) {
     tempAmount += newAmount
     setTotalWorth(tempAmount)
@@ -30,9 +30,9 @@ function Portfolio() {
   return (
     <div className="portfolio-container section" id="portfolio">
       <h1 className="page-title container">P O R T F O L I O</h1>
-      <TotalWorth data={data} totalWorth={totalWorth} sumWorth={sumWorth}/>
+      <TotalWorth data={data} totalWorth={totalWorth} />
       <AddCoinForm data={data} addCoin={addCoin} />
-      <Table data={data} />
+      <Table data={data} sumWorth={sumWorth} />
     </div>
   );
 }
