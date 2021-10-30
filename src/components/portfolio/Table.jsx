@@ -28,7 +28,7 @@ function Table(props) {
                 <CoinRow 
                   key={index} 
                   num={index+1} 
-                  name={value.key} 
+                  name={value.name} 
                   amount={value.value.quantity} 
                 />
               ); 

@@ -7,8 +7,7 @@ import AddCoinForm from './AddCoinForm';
 function Portfolio() {
 
   // Portfolio's Records
-  const records = [{key: "Bitcoin", value: {"quantity": '13'}}, {key: "Ethereum", value: {"quantity": '53'}}, {key: "tron", value: {"quantity": '2'}}]
-  // const records = []
+  const records = [{name: "Bitcoin", value: {"quantity": '13'}}, {name: "Ethereum", value: {"quantity": '53'}}, {name: "tron", value: {"quantity": '2'}}]
   const [data, setData] = useState(records); 
 
   // Total Worth 
@@ -21,11 +20,11 @@ function Portfolio() {
 
   // Adding new coin 
   function addCoin(newCoinName, newCoinValue) {
-    console.log(data, "before")
-    console.log(newCoinName, newCoinValue)
-    records.push({key: newCoinName, value: {"quantity": newCoinValue}}) 
-    setData(records)
-    console.log(data, "after")
+    let newData = {name: newCoinName, value: {"quantity": newCoinValue}}
+    records.push({name: newCoinName, value: {"quantity": newCoinValue}}) 
+    setData(prevCoins => {
+      return [...prevCoins, newData]
+    })
   }
 
   return (
