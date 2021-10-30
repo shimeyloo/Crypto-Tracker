@@ -3,12 +3,21 @@ import './Portfolio.css';
 import TotalWorth from './TotalWorth';
 import Table from './Table'; 
 import AddCoinForm from './AddCoinForm';
+import brokenIMG from '../../images/brokenIMG.png' 
 
 function Portfolio() {
 
   // Portfolio's Records
-  const records = [{name: "Bitcoin", value: {"quantity": '13'}}, {name: "Ethereum", value: {"quantity": '53'}}, {name: "tron", value: {"quantity": '2'}}]
+  const records = [
+    {name: "Bitcoin", value: {"id":"", "symbol":"", "quantity": "13", "price": "", "totalWorth": "", "logo": brokenIMG}}, 
+    {name: "Ethereum", value: {"id":"", "symbol":"", "quantity": '53', "price": "", "totalWorth": "", "logo": brokenIMG}}
+  ]
   const [data, setData] = useState(records); 
+
+  // Update records and set data 
+  function updateData() {
+    console.log("something is happening")
+  }
 
   // Total Worth 
   const [totalWorth, setTotalWorth] = useState(0);
@@ -20,8 +29,8 @@ function Portfolio() {
 
   // Adding new coin 
   function addCoin(newCoinName, newCoinValue) {
-    let newData = {name: newCoinName, value: {"quantity": newCoinValue}}
-    records.push({name: newCoinName, value: {"quantity": newCoinValue}}) 
+    let newData = {name: newCoinName, value: {"id":"", "symbol":"", "quantity": newCoinValue, "price": "", "totalWorth": "", "logo": brokenIMG}}
+    records.push(newData) 
     setData(prevCoins => {
       return [...prevCoins, newData]
     })
@@ -43,7 +52,12 @@ function Portfolio() {
       <h1 className="page-title container">P O R T F O L I O</h1>
       <TotalWorth data={data} totalWorth={totalWorth} />
       <AddCoinForm data={data} addCoin={addCoin} />
-      <Table data={data} sumWorth={sumWorth} deleteCoin={deleteCoin}/>
+      <Table 
+        data={data} 
+        sumWorth={sumWorth} 
+        deleteCoin={deleteCoin} 
+        updateData={updateData}
+      />
     </div>
   );
 }

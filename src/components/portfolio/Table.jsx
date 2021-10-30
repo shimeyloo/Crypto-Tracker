@@ -28,8 +28,8 @@ function Table(props) {
                 <CoinRow 
                   key={index} 
                   num={index+1} 
-                  name={value.name} 
-                  amount={value.value.quantity} 
+                  data={value}
+                  updateData={props.updateData}
                   sumWorth={props.sumWorth}
                   deleteCoin={props.deleteCoin}
                 />

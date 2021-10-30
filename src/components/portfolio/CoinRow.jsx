@@ -6,7 +6,6 @@ import brokenIMG from '../../images/brokenIMG.png'
 
 function CoinRow(props) {
   
-    const [name, setName] = useState([""]); 
     const [logo, setLogo] = useState([brokenIMG]); 
     const [symbol, setSymbol] = useState([""]); 
     const [price, setPrice] = useState([""]); 
@@ -16,17 +15,17 @@ function CoinRow(props) {
   
       axios
         .get(
-          'https://api.coingecko.com/api/v3/coins/'+props.name.toLowerCase()+'?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+          'https://api.coingecko.com/api/v3/coins/'+props.data.name.toLowerCase()+'?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
         )
         .then(res => {;
-          setName(res.data.name);
+          props.updateData()
           setLogo(res.data.image.thumb); 
           setSymbol(res.data.symbol.toUpperCase());
           setPrice(res.data.market_data.current_price.usd);
           
           const totalCalc = function totalCalculation() {
             let x = Number(res.data.market_data.current_price.usd)
-            let y = Number(props.amount)
+            let y = Number(props.data.value.quantity)
             let z = x * y 
             props.sumWorth(z)
             return z.toLocaleString()
@@ -41,14 +40,14 @@ function CoinRow(props) {
         <th scope="row">{props.num}</th>
         <td>
           <img className="coin-logo" src={logo} alt="Logo" />
-          {name}
+          {props.data.name}
         </td>
         <td>{symbol}</td>
-        <td>{props.amount}</td>
+        <td>{props.data.value.quantity}</td>
         <td>$ {price}</td>
         <td>$ {total}</td>
         <td>
-          <DeleteButton pos={props.num-1} deleteCoin={props.deleteCoin}/>
+          <DeleteButton pos={props.num-1} total={total} deleteCoin={props.deleteCoin}/>
           <button>Edit</button>
         </td>
       </tr>
