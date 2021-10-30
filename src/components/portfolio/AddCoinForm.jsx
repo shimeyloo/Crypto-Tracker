@@ -29,7 +29,7 @@ function AddCoinForm(props) {
           let x = Number(res.data.market_data.current_price.usd)
           let y = Number(amount)
           let z = x * y 
-          return z.toLocaleString()
+          return z
         }
         let total = totalCalc()
 
