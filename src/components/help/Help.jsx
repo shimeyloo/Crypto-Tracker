@@ -35,9 +35,9 @@ function EmailForm() {
 
 function Help() {
   return (
-    <div>
+    <div className="section help-section">
       <h1 className="page-title container">H E L P</h1>
-      <div className="section help-section">
+      <div className="each-section">
         <h2 className="container sub-heading">Frequently Asked Questions:</h2>
         <FrequentQuestions 
           question="The page did not load correcly."
@@ -57,11 +57,11 @@ function Help() {
           answer="Watch and enjoy this video. https://www.youtube.com/watch?v=NUYvbT6vTPs"
         />
       </div>
-      <div className="section help-section">
+      <div className="each-section">
         <h2 className="container sub-heading">Chat with us:</h2>
         <EmailForm />
       </div>
-      <div className="section help-section">
+      <div className="each-section">
         <h2 className="container sub-heading">Call us:</h2>
         <h3 className="container">1-800-123-4567</h3>
       </div>

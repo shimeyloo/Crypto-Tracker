@@ -1,43 +1,46 @@
 .help-section {
-    margin-bottom: 10em;
+    background-color: rgb(247, 251, 255);
 }
 
-.details-container {
-    max-width: 800px;
-    font-size: 1.1em;
+.each-section {
+    margin-bottom: 10em;
 }
 
 .sub-heading{
     margin-bottom: 1em;
 }
 
+/* --------------- Frequently asked question --------------- */
+.details-container {
+    max-width: 800px;
+    font-size: 1.1em;
+    background-color: white;
+}
 details {
     border: 1px solid #aaa;
     border-radius: 4px;
     padding: .5em .5em 0;
     margin: 1em;
 }
-
 summary {
     font-weight: bold;
     margin: -.5em -.5em 0;
     padding: .5em;
 }
-
 details[open] {
     padding: .5em;
 }
-
 details[open] summary {
     border-bottom: 1px solid #aaa;
     margin-bottom: .5em;
 }
 
+
+/* --------------- Chat with us --------------- */
 .chat-container {
     max-width: 600px;
     display: block;
 }
-
 .chat-submit {
     float: right;
 }
