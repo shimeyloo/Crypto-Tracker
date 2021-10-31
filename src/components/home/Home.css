@@ -2,21 +2,29 @@
     background-color: rgb(247, 251, 255);
     height: 90vh;
 }
+.intro-container{
+    margin-top: 3em; 
+    left: 4em; 
+}
 .main-section {
     width: 100%;
     float: left;
     margin: 5em 0 5em 0;
 }
+.laptop-image{
+    margin-right: 4em; 
+}
 .main-text-1 {
     color: rgb(65, 147, 255); 
     font-size: 1.5em;
+    margin-bottom: 0;
 }
 .main-text-2 {
     margin: 0;
     padding: 0;
-    font-size: 5em;
+    font-size: 4.5em;
 }
 .main-text-3 {
-    font-size: 1.5em; 
+    font-size: 1.2em; 
 
 }

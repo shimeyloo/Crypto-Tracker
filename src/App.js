@@ -15,7 +15,8 @@ import Portfolio from './components/portfolio/Portfolio.jsx';
 import Search from './components/search/Search';
 import Help from './components/help/Help.jsx';
 
-import logo from './images/logo.png'
+// import logo from './images/logo.png'
+import logo2 from './images/logo2.png'
 
 
 function App() {
@@ -25,47 +26,50 @@ function App() {
   }
 
   return (
+    <div>
 
-    <Router>
-    
-      <div>
-        <div className="section navbar-container">
-          <div className="container">
-              <span className="float-left">
-                  <Link className="remove-decoration logo-name vertical-center" style={padding} to="/">
-                    <img src={logo} alt="Logo"></img>
-                    <span>Crypto Tracker</span>
-                  </Link>
-              </span>
-              <span className="float-right">
-                <Link className="each-link remove-decoration" style={padding} to="/help">Help</Link>
-                <Link className="each-link remove-decoration" style={padding} to="/search">Search</Link>
-                <Link className="each-link remove-decoration" style={padding} to="/portfolio">Portfolio</Link>
-                <Link className="each-link remove-decoration" style={padding} to="/features">Features</Link>
-              </span>
+      <Router>
+        <div>
+          <div className="section navbar-container">
+            <div className="container">
+                <span className="float-left">
+                    <Link className="remove-decoration home-page vertical-center" style={padding} to="/">
+                      <img src={logo2} alt="Logo"></img>
+                      <span className="logo-name">Crypto Tracker</span>
+                    </Link>
+                </span>
+                <span className="float-right">
+                  <Link className="each-link remove-decoration" style={padding} to="/help">Help</Link>
+                  <Link className="each-link remove-decoration" style={padding} to="/search">Search</Link>
+                  <Link className="each-link remove-decoration" style={padding} to="/portfolio">Portfolio</Link>
+                  <Link className="each-link remove-decoration" style={padding} to="/features">Features</Link>
+                </span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <Switch>
-        <Route path="/help">
-          <Help />
-        </Route>
-        <Route path="/search">
-          <Search />
-        </Route>
-        <Route path="/portfolio">
-          <Portfolio />
-        </Route>
-        <Route path="/features">
-          <Features />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/help">
+            <Help />
+          </Route>
+          <Route path="/search">
+            <Search />
+          </Route>
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
+          <Route path="/features">
+            <Features />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+      
+    </div>
 
-    </Router>
+    
   );
 }
 

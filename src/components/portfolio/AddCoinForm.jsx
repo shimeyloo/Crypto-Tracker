@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import './Portfolio.css';
 
 function AddCoinForm(props) {
 
@@ -44,7 +45,7 @@ function AddCoinForm(props) {
     return(
       <div className="section">
         <div className="container">
-          <h2>Add Coin</h2>
+          <h2 className="add-coin-title">Add Coin: </h2>
           <form onSubmit={handleAddSubmit}>
             <input 
               type="text" 
@@ -54,6 +55,7 @@ function AddCoinForm(props) {
             ></input>
             <input 
               type="number" 
+              step="any"
               placeholder='Amount you own...' 
               value={amount}
               onChange={quantityInput} 

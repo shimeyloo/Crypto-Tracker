@@ -38,7 +38,7 @@ function Help() {
     <div>
       <h1 className="page-title container">H E L P</h1>
       <div className="section help-section">
-        <h2 className="container">Frequently Asked Questions:</h2>
+        <h2 className="container sub-heading">Frequently Asked Questions:</h2>
         <FrequentQuestions 
           question="The page did not load correcly."
           answer="Try refreshing the page. If the issue persist please reach out to our custumer services. 
@@ -58,11 +58,11 @@ function Help() {
         />
       </div>
       <div className="section help-section">
-        <h2 className="container">Chat with us:</h2>
+        <h2 className="container sub-heading">Chat with us:</h2>
         <EmailForm />
       </div>
       <div className="section help-section">
-        <h2 className="container">Call us:</h2>
+        <h2 className="container sub-heading">Call us:</h2>
         <h3 className="container">1-800-123-4567</h3>
       </div>
     </div>

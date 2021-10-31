@@ -13,6 +13,19 @@
     border-color: rgb(185, 185, 185);
 }
 
+.total-container {
+    margin-bottom: 3em;
+}
+
+.total-title {
+    margin-right: .7em;
+}
+
+.add-coin-title {
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
 td button {
     float: right; 
     margin-left: 1em;

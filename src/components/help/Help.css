@@ -4,6 +4,11 @@
 
 .details-container {
     max-width: 800px;
+    font-size: 1.1em;
+}
+
+.sub-heading{
+    margin-bottom: 1em;
 }
 
 details {
