@@ -26,6 +26,15 @@ function Features() {
         video={addVideo} 
       />
       <EachFeature 
+        title="Change CURRENCY" 
+        subTitle="How to change the currency:" 
+        step1 = 'Step 1. Go to the "Portfolio" Page.'
+        step2 = 'Step 2. Under "Choose a currency: ", choose the currency.'
+        step3 = 'Step 3. The total worth will convert automatically.'
+        step4 = ''
+        video={addVideo}
+      />
+      <EachFeature 
         title="SEARCH for a coin" 
         subTitle="How to search for a specific coin:" 
         step1 = 'Step 1. Go to the "Search" Page.'
