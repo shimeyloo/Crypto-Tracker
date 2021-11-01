@@ -31,7 +31,7 @@ function Search() {
         <div className='coin-component section'>
           <div className='coin-search container'>
             <h1 className="page-title">S E A R C H</h1>
-            <p>Enter coin name: </p>
+            <p className="search-coin">Enter coin name: </p>
             <div className='coin-form'>
               <form>
                 <input

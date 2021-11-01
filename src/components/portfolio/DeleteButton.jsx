@@ -4,7 +4,7 @@ function DeleteButton(props) {
     return (
         <button 
           onClick={() => {
-            props.deleteCoin(props.pos)
+            if (window.confirm('Are you sure you wish to delete this item?')) props.deleteCoin(props.pos)
           }}
         >
           Delete

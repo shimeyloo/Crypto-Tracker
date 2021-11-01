@@ -1,7 +1,39 @@
+/* --------------- Portfolio --------------- */
 .portfolio-container {
     background-color: rgb(247, 251, 255);
 }
 
+/* --------------- Total Worth --------------- */
+.total-container {
+    margin-bottom: 1em;
+}
+.total-title {
+    margin-right: .7em;
+    font-size: 2.8em;
+}
+.total-value {
+    font-size: 2.8em;
+}
+.total-currency {
+    margin-left: .5em; 
+}
+
+/* --------------- Currency Form --------------- */
+.currency-form {
+    margin-bottom: 4em;
+}
+.choose-currency {
+    font-size: 1.2em;
+    margin-right: 1.2em;
+}
+
+/* --------------- Add Coin Form --------------- */
+.add-coin-title {
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
+/* --------------- Table --------------- */
 .table-section {
     margin-top: 5em;
     margin-bottom: 5em;
@@ -13,15 +45,18 @@
     border-color: rgb(185, 185, 185);
 }
 
+/* --------------- Coin Row --------------- */
+.coin-logo {
+    margin-right: .8em;
+}
 td button {
     float: right; 
     margin-left: 1em;
 }
 
-.currencyConverter {
-    margin-top: 10em;
-}
 
-.coin-logo {
-    margin-right: .8em;
-}
+
+/* 
+.currencyConverter  {
+    margin-top: 10em;
+} */

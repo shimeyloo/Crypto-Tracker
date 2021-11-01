@@ -32,6 +32,7 @@ function Table(props) {
                   updateData={props.updateData}
                   addWorth={props.addWorth}
                   deleteCoin={props.deleteCoin}
+                  editCoin={props.editCoin}
                 />
               ); 
             })}
