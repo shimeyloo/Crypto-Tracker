@@ -30,10 +30,12 @@ function Portfolio() {
 
   // Total Worth 
   const [totalWorth, setTotalWorth] = useState(0);
+  const [displayTotalWorth, setDisplayTotalWorth] = useState(totalWorth); 
   let tempAmount = totalWorth
   function addWorth(newAmount) {
     tempAmount += newAmount
     setTotalWorth(tempAmount)
+    setDisplayTotalWorth(tempAmount)
   }
 
   // Adding new coin 
@@ -54,6 +56,9 @@ function Portfolio() {
             setTotalWorth(prevData => {
               return (prevData - item.value.totalWorth)
             })
+            setDisplayTotalWorth(prevData => {
+              return (prevData - item.value.totalWorth)
+            })
           }
           return index !== pos; 
         }
@@ -65,7 +70,7 @@ function Portfolio() {
   return (
     <div className="portfolio-container section" id="portfolio">
       <h1 className="page-title container">P O R T F O L I O</h1>
-      <TotalWorth data={data} totalWorth={totalWorth} />
+      <TotalWorth data={data} totalWorth={totalWorth} displayWorth={displayTotalWorth} setDisplayTotalWorth={setDisplayTotalWorth} />
       <AddCoinForm data={data} addCoin={addCoin} />
       <Table 
         data={data} 

@@ -45,8 +45,8 @@ function Help() {
           Phone: 1-800-123-4567 Email: customerservices@cryptotracker.com "
         />
         <FrequentQuestions 
-          question="How do I edit my portfolio?"
-          answer="Please go to our Features page for more information on how to edit your portfolio."
+          question="How do I add to my portfolio?"
+          answer="Please go to our Features page for more information on how to add to your portfolio."
         />
         <FrequentQuestions 
           question="How do I search for a specific coin?"
