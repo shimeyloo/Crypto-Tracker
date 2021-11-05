@@ -35,7 +35,7 @@ function App() {
                 <span className="float-left">
                     <Link className="remove-decoration home-page vertical-center" style={padding} to="/">
                       <img src={logo2} alt="Logo"></img>
-                      <span className="logo-name">Crypto Tracker</span>
+                      <span className="logo-name">CRYPTO TRACKER</span>
                     </Link>
                 </span>
                 <span className="float-right">
