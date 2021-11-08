@@ -1,7 +1,11 @@
 import React from 'react';
-import addVideo from '../../images/addVideo.mp4'
 import './Features.css'
 import EachFeature from './EachFeature';
+
+import addVideo from '../../images/Add.mp4'
+import DeleteVideo from '../../images/Delete.mp4'
+import ChangeCurrencyVideo from '../../images/ChangeCurrency.mp4'
+import SearchVideo from '../../images/Search.mp4'
 
 function Features() {
   return (
@@ -23,7 +27,7 @@ function Features() {
         step2 = 'Step 2. Go to the table.'
         step3 = 'Step 3. Find the coin you would like to delete.'
         step4 = 'Step 4. Click on "Delete".'
-        video={addVideo} 
+        video={DeleteVideo} 
       />
       <EachFeature 
         title="Change CURRENCY" 
@@ -32,7 +36,7 @@ function Features() {
         step2 = 'Step 2. Under "Choose a currency: ", choose the currency.'
         step3 = 'Step 3. The total worth will convert automatically.'
         step4 = ''
-        video={addVideo}
+        video={ChangeCurrencyVideo}
       />
       <EachFeature 
         title="SEARCH for a coin" 
@@ -41,7 +45,7 @@ function Features() {
         step2 = 'Step 2. Under "Enter coin name: ", enter the name of the coin. As you enter the name, the table will automacally filter the results.'
         step3 = ''
         step4 = ''
-        video={addVideo} 
+        video={SearchVideo} 
       />
     </div>
   );
