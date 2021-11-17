@@ -1,6 +1,6 @@
 # Cryptocurrency Tracker
 
-Web application to keep track of your cyprtocurrency worth created with React JS. 
+Web application that keeps track of your cyprtocurrency worth created with React JS. 
 
 ## How to run: 
 
