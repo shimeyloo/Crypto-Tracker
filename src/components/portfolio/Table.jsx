@@ -2,7 +2,6 @@ import React from 'react';
 import CoinRow from './CoinRow';
 
 // Notes: 
-// https://www.youtube.com/watch?v=dYjdzpZv5yc
 // https://flaviocopes.com/react-update-while-rendering-different-component/
 
 function Table(props) {
