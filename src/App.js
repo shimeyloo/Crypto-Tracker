@@ -1,8 +1,3 @@
-// Notes: 
-// https://www.kubera.com/?utm_source=benzinga&utm_campaign=best-portfolio-tracker
-// https://www.altrady.com/
-// https://www.sharesight.com/
-
 import React from 'react';
 import Home from './components/home/Home.jsx';
 import {
@@ -15,7 +10,6 @@ import Portfolio from './components/portfolio/Portfolio.jsx';
 import Search from './components/search/Search';
 import Help from './components/help/Help.jsx';
 
-// import logo from './images/logo.png'
 import logo2 from './images/logo2.png'
 
 
